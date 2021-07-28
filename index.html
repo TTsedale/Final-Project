@@ -47,21 +47,21 @@
 <div class ="container">
     <div class="row">
         <div class="col-md-6">
-            <form>
-                
-          
+                         
+                        <form id="newTaskForm">
+                  
                                  <div class="form-group">
                                     
-                                        <label for="name" class="form-label">Name</label>
+                                        <label for="name" class="form-label">Task Name</label>
                                         <input type="text" class="form-control" id="name">
 
                                     </div>
                                    <div class="form-group">
-                                <label for="content">Detail Discription</label>
-                                <textarea id="content" class="form-control" placeholder="Enter your discription"
+                                 <label for="detailedDescription">Detail Discription</label>
+                                 <textarea id="detailedDescription" class="form-control" placeholder="Enter your discription"
                                     rows="3"></textarea>
 
-                            </div>
+                                 </div>
                                     <div class="form-group">
                                         <label for="assignedTo" class="form-label">Assigned To</label>
                                         <input type="text" class="form-control" id="assignedTo">
@@ -69,48 +69,55 @@
                                     <br>
 
                                     <label for="start">Due date:</label>
-
-                                    <input type="date">
+                                    <input type="date" id="date">
                                     <div class="col">
                                         <br>
-                                        <button type="submit" class="btn btn-primary">Add Task Button</button>
+                                        <button type="submit" class="btn btn-primary">Add New Task</button>
                                     </div>
 
-                                </form>
-                            </div>
-                        </div>
+                        </form>
+                </div>
+        </div>
 </div>
    
     
-    <div class="container">
-        <h2 class="card-title">Task Lists</h2>
+<div id="displayHere"></div>
 
-
-        <hr>
-
+<div class="container">
+        <h2 class="card-title" id="taskList">Task Lists</h2>
         <div class= "row">
             <div class="col-12 col-md-6 col-lg-4 col-xl-3 ">
-                <h4 class="card-title">Task List1</h4>
+                <h4 class="card-title" id="taskListCard">Task List</h4>
                     <div class="card mb-4"> 
                         <div class="card-body cardone">
                             <ul class="list-group  list-group-flush ">
-                                <li class="list-group-item cardA">Name: Tsedale T</li>
-                                <li class="list-group-item cardA">Discription:Team</li>
-                                <li class="list-group-item cardA">Assigned To: coding</li>
-                                <li class="list-group-item cardA">Date: 06/30/2021 </li>
+                                <li class="list-group-item cardA">Name: </li>
+                                <li class="list-group-item cardA">Discription:</li>
+                                <li class="list-group-item cardA">Assigned To: </li>
+                                <li class="list-group-item cardA">Date:  </li>
                 
                             </ul>
-                            <br>
+                            <!-- <br>
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" id="gridCheck">
                                 <label class="form-check-label" for="gridCheck">To Do</label>
-                            </div> 
+                            </div>  -->  
+
+                             <div>
+                                <label for="toDo">Choose status:</label>
+                                <select name="status" id="status">
+                                    <option value="done">Done</option>
+                                    <option value="Inprogress">In Progress</option>
+                                    <option value="delete">Delete</option>
+                                </select>
+                            </div>
+       
 
 
                         </div>
                     </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 col-xl-3 ">
+            </div> 
+            <!-- <div class="col-12 col-md-6 col-lg-4 col-xl-3 ">
                 <h4 class="card-title">Task List2</h4>
                     <div class="card mb-4"> 
                         <div class="cardtwo card-body">
@@ -130,8 +137,8 @@
 
                         </div>
                     </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 col-xl-3 ">
+            </div> -->
+            <!-- <div class="col-12 col-md-6 col-lg-4 col-xl-3 ">
                 <h4 class="card-title">Task List3</h4>
                     <div class="card mb-4"> 
                         <div class="cardthree card-body">
@@ -151,8 +158,8 @@
 
                         </div>
                     </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 col-xl-3 ">
+            </div> -->
+            <!-- <div class="col-12 col-md-6 col-lg-4 col-xl-3 ">
                 <h4 class="card-title">Task List4</h4>
                     <div class="card mb-4"> 
                         <div class="cardfour card-body">
@@ -172,8 +179,8 @@
 
                         </div>
                     </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 col-xl-3 ">
+            </div> -->
+            <!-- <div class="col-12 col-md-6 col-lg-4 col-xl-3 ">
                 <h4 class="card-title">Task List5</h4>
                     <div class="card mb-4"> 
                         <div class="cardfive card-body">
@@ -193,13 +200,11 @@
 
                         </div>
                     </div>
-            </div>
-        </div>
-    
-    </div> 
+            </div> -->
+        <!-- </div> -->
+    <!-- </div>  -->
+
+<script src="/js/index.js"></script>
 </body>
 </html>
-
-
-
 
