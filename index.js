@@ -4,9 +4,10 @@
 //import TaskManager from './taskManager.js'
 
 
-const createTaskHTML= (name, detailedDescription, assignedTo, dueDate, status) => {
+const createTaskHTML = (name, detailedDescription, assignedTo, dueDate, status) => {
     const html = `
-            <div class="col-12 col-md-6 col-lg-4 col-xl-3 ">
+           
+    <div class="col-12 col-md-6 col-lg-4 col-xl-3 ">
                     <h4 class="card-title" id = "taskListCard">Task List1</h4>
                         <div class="card mb-4"> 
                             <div class="card-body cardone">
@@ -14,7 +15,7 @@ const createTaskHTML= (name, detailedDescription, assignedTo, dueDate, status) =
                                     <li class="list-group-item cardA">Name: ${name}</li>
                                     <li class="list-group-item cardA">Discription:${detailedDescription}</li>
                                     <li class="list-group-item cardA">Assigned To: ${assignedTo}</li>
-                                    <li class="list-group-item cardA">Date:${dueDate}</li>
+                                    <li class="list-group-item cardA">Date: ${dueDate}</li>
                     
                                 </ul>
                                 <br>
@@ -29,31 +30,25 @@ const createTaskHTML= (name, detailedDescription, assignedTo, dueDate, status) =
       
                             </div>
                         </div>
-                </div>
+                </div> 
     `
     return html;
-  };
-
-
-
-
-
-  
+};
 
 class TaskManager {
-    constructor (){
-        this.tasks =[];
+    constructor() {
+        this.tasks = [];
         this.currentId = 0;
     };
 
-    
-      addTask(name, detailedDescription, assignedTo, dueDate) {
+
+    addTask(name, detailedDescription, assignedTo, dueDate) {
 
         const newTask = {
-            name:name, 
-            detailedDescription:detailedDescription, 
-            assignedTo:assignedTo, 
-            dueDate:dueDate, 
+            name: name,
+            detailedDescription: detailedDescription,
+            assignedTo: assignedTo,
+            dueDate: dueDate,
             id: this.currentId
         };
 
@@ -61,72 +56,56 @@ class TaskManager {
         this.currentId++;
     }
 
-    
+    validFormFieldInput(taskName) {
+        console.log('name: ' + taskName);
+    }
+
     render() {
         const tasksHtmlList = [];
 
-        for(let i=0; i<this.tasks.length; i++){
-            let newTaskHTML = createTaskHTML(this.tasks[i].name, this.tasks[i].detailedDescription,this.tasks[i].assignedTo,this.tasks[i].dueDate,this.tasks[i].status);
+        for (let i = 0; i < this.tasks.length; i++) {
+            let newTaskHTML = createTaskHTML(this.tasks[i].name, this.tasks[i].detailedDescription, this.tasks[i].assignedTo, this.tasks[i].dueDate, this.tasks[i].status);
             tasksHtmlList.push(newTaskHTML);
         }
-      // console.log(this.tasks);
-      const displayHere = document.getElementById('displayHere');
-    displayHere.innerHTML = tasksHtmlList.join('\n + ');
+        // console.log(this.tasks);
+        const displayHere = document.getElementById('displayHere');
+        displayHere.innerHTML = tasksHtmlList.join('\n');
 
     }
 
-    date = new Date();
-
-};      
-
-// const taskListCard = document.getElementsById('taskListCard'); 
-// taskListCard.addEventListener('submit', (e) => {
-// taskListCard.innerHTML = newTaskHTML;
-
-// });
-
-
-//tasksHtmlList.join('\n + ');
-
-
-
-
-// tasksHtmlList.addEventListener('DOMContentLoaded', () => {
-//     document.getElementsById('submit').addEventListener('submit', tasksHtmlList);
-// });
-
-
-
-
-
-
+};
 
 let tm = new TaskManager;
 console.log(tm.tasks);
 
 
 
-newTaskForm.addEventListener('submit',(event) => {
+newTaskForm.addEventListener('submit', (event) => {
     // Prevent default action
     event.preventDefault();
     //Select the inputs
-    
-const newTaskForm = document.querySelector('#newTaskForm');
-const taskName = document.querySelector('#name').value;
-const detailedDescription = document.querySelector('#detailedDescription').value;
-const taskAssignedTo = document.querySelector('#assignedTo').value;
-const taskDueDate = document.querySelector('#date').value;
-//const errorMessage = document.querySelector('#alertMessage');
-    
-    
+
+    const newTaskForm = document.querySelector('#newTaskForm');
+    const taskName = document.querySelector('#name').value;
+    const detailedDescription = document.querySelector('#detailedDescription').value;
+    const taskAssignedTo = document.querySelector('#assignedTo').value;
+    const taskDueDate = document.querySelector('#date').value;
+    //const errorMessage = document.querySelector('#errorMessage');
+
+
     tm.addTask(taskName, detailedDescription, taskAssignedTo, taskDueDate);
     tm.render();
+
     document.getElementById('newTaskForm').reset();
 
-    
-    });
+    //errorMessage.innerHTML = "<h1>hi</h1>"
 
- 
+    tm.validFormFieldInput(taskName);
+
+});
+
+
+
 
 
 
